@@ -152,6 +152,11 @@
         $('html').on('click.dropdown.data-api', clear_menus);
         $('body').on('click.dropdown.data-api', toggle, Dropdown.prototype.toggle);
         $share_container = $(share_selector);
+        var tweetby = $share_container.attr('data-tweet-at');
+        if (tweetby) {
+            providers['twitter']['small-bubbles']['data-via'] = tweetby;
+            providers['twitter']['bubbles']['data-via'] = tweetby;
+        }
         $share_container.append(packaged_html);
         for (var key in providers) {
             $share_container.find(providers[key].selector)
