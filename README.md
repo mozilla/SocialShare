@@ -1,7 +1,7 @@
 # Private Social Sharing
 
 ## About
-Most "Share with Twitter/Facebook/Google+" buttons leak user data even
+Most "Share with Twitter/Facebook/Google+ buttons leak user data even
 when people don't don't use the button.
 
 This implementation of social sharing doesn't leak user data until a user goes
@@ -12,11 +12,24 @@ Insert the following code to get it to run
 
 ```html
 <div class="socialshare" data-size="{{bubbles/small-bubbles}}"></div>
-<script src="socialshare.js"></script>
+<script src="media/socialshare.min.js"></script>
+<link href="media/socialshare.min.css" type="text/css">
 ```
 
-Put your images somewhere cool. Compile the css and include those too.
+Other resources (images, fonts) should be reached from their own media folder.
 
-TODO:
+## Making Changes
 
-Package everything/minify it put it in the readme how to clone and stuff.
+So you provided me with a bunch of minified files, what if I want to change them? There are a few more requirements to be able to compile all the files.
+
+### Prerequisite
+
+- [java](http://www.oracle.com/technetwork/java/javase/downloads/index.html) - This is needed for the YUI compressor
+- [lessc](http://lesscss.org/) This is needed to compile less files. You can install this with `npm install -g less`. More about how to install [npm here.](http://npmjs.org/)
+
+### Compiling
+
+Run `./compress.sh` from the root directory in order to regenerate all the files.
+
+
+
