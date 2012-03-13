@@ -25,6 +25,14 @@ Name         | Value
 data-size    | Controls the size of the share icons (bubbles/small-bubbles)
 data-tweet-at | Controls which twitter account tweeted the content (default: @firefox)
 
+Some values are not configurable through the plugin. For example the tweet text and tweet website are controled by the open graph meta data:
+
+```html
+<meta property="og:title" content="Owen is awesome">
+<meta property="og:url" content="http://owencoutts.com">
+```
+
+
 ## Making Changes
 
 So you provided me with a bunch of minified files, what if I want to change them? There are a few more requirements to be able to compile all the files.
