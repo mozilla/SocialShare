@@ -1,7 +1,7 @@
 # Private Social Sharing
 
 ## About
-Most **"Share with Twitter/Facebook/Google+"** buttons leak user data even
+Most *"Share with Twitter/Facebook/Google+"* buttons leak user data even
 when people don't don't use the button.
 
 This implementation of social sharing doesn't leak user data until a user goes
