@@ -11,7 +11,7 @@ to share the page.
 Insert the following code to get it to run
 
 ```html
-<div class="socialshare" data-size="{{bubbles/small-bubbles}}"></div>
+<div class="socialshare" data-type="{{bubbles/small-bubbles}}"></div>
 <script src="media/socialshare.min.js"></script>
 <link href="media/socialshare.min.css" type="text/css">
 ```
@@ -22,7 +22,7 @@ Other resources (images, fonts) should be reached from their own media folder.
 
 Name         | Value
 ------------ | -------------
-data-size    | Controls the size of the share icons (bubbles/small-bubbles)
+data-type    | Controls the size of the share icons (bubbles/small-bubbles)
 data-tweet-at | Controls which twitter account tweeted the content (default: @firefox)
 
 Some values are not configurable through the plugin. For example the tweet text and tweet website are controled by the open graph meta data:
