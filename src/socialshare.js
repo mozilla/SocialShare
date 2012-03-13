@@ -22,7 +22,8 @@
     '        <li><div class="g-plusone"></div></li>' +
     '        <li><a href="https://twitter.com/share" class="twitter-share-button"></a></li>' +
     '    </ul>' +
-    '</div>';
+    '</div>' +
+    '<div id="fb-root"></div>';
     var type;
     var providers = {
         facebook: {
