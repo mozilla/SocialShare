@@ -147,15 +147,26 @@
 
     $.fn.dropdown.Constructor = Dropdown;
 
-    /* APPLY TO DROPDOWN ELEMENTS */
+    var set_twitter = function(property, value) {
+        providers.twitter['small-bubbles'][property] = value;
+        providers.twitter['bubbles'][property] = value;
+    };
+
     $(function() {
         $('html').on('click.dropdown.data-api', clear_menus);
         $('body').on('click.dropdown.data-api', toggle, Dropdown.prototype.toggle);
         $share_container = $(share_selector);
         var tweetby = $share_container.attr('data-tweet-at');
         if (tweetby) {
-            providers['twitter']['small-bubbles']['data-via'] = tweetby;
-            providers['twitter']['bubbles']['data-via'] = tweetby;
+            set_twitter('data-via', tweetby);
+        }
+        var $meta_title = $('meta[property="og:title"]');
+        if ($meta_title) {
+            set_twitter('data-text', $meta_title.attr('content'));
+        }
+        var $meta_url = $('meta[property="og:url"]');
+        if ($meta_url) {
+            set_twitter('data-url', $meta_url.attr('content'));
         }
         $share_container.append(packaged_html);
         for (var key in providers) {
