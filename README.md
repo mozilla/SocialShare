@@ -18,6 +18,13 @@ Insert the following code to get it to run
 
 Other resources (images, fonts) should be reached from their own media folder.
 
+### Options
+
+Name         | Value
+------------ | -------------
+data-size    | Controls the size of the share icons (bubbles/small-bubbles)
+data-tweet-at | Controls which twitter account tweeted the content (default: @firefox)
+
 ## Making Changes
 
 So you provided me with a bunch of minified files, what if I want to change them? There are a few more requirements to be able to compile all the files.
