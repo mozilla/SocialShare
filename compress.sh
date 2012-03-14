@@ -1,3 +1,5 @@
+#!/bin/sh
+
 RESOURCE_FOLDER="./media/"
 
 mkdir -p ${RESOURCE_FOLDER}
