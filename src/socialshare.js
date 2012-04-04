@@ -67,15 +67,18 @@
             src: '//platform.twitter.com/widgets.js',
             selector: '.twitter-share-button',
             'small-bubbles': {
-                'data-via': 'firefox'
+                'data-via': 'firefox',
+                'data-related': 'firefox'
             },
             'bubbles': {
                 'data-via': 'firefox',
-                'data-count': 'vertical'
+                'data-count': 'vertical',
+                'data-related': 'firefox'
             },
             'small': {
                 'data-via': 'firefox',
-                'data-count': 'none'
+                'data-count': 'none',
+                'data-related': 'firefox'
             }
         }
     };
