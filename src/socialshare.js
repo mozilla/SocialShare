@@ -177,5 +177,11 @@
             $share_container.find(providers[key].selector)
                 .attr(providers[key][$share_container.attr('data-type')]);
         }
+
+        $(document).keypress(function(e) {
+            if (e.which === 0 && $share_container.hasClass('open')) {
+                clear_menus();
+            }
+        });
     });
 })(window.jQuery);
