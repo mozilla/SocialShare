@@ -39,8 +39,8 @@ So you provided me with a bunch of minified files, what if I want to change them
 
 ### Prerequisite
 
-- [java](http://www.oracle.com/technetwork/java/javase/downloads/index.html) - This is needed for the YUI compressor
 - [lessc](http://lesscss.org/) This is needed to compile less files. You can install this with `npm install -g less`. More about how to install [npm here.](http://npmjs.org/)
+- [uglify.js](https://github.com/mishoo/UglifyJS) This is the minifier. You can install this with `npm install uglify-js`. More about how to install [npm here.](http://npmjs.org/)
 
 ### Compiling
 
