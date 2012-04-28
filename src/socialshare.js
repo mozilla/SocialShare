@@ -6,23 +6,19 @@
 
     var toggle = '[data-toggle="dropdown"]';
     var share_selector = '.socialshare';
-    var fb_iframe = '.socialshare.open[data-type="small-bubbles"] .share-options div.fb-like iframe';
+    var fb_iframe = '.socialshare.open[data-type="small-bubbles"] #share-options div.fb-like iframe';
     var $share_container;
     var packaged_html = '' +
     '<div class="dropdown-toggle" data-toggle="dropdown">' +
-    '    <div class="share-link"><div>' +
-    '        <div class="heart"></div>' +
-    '        <p class="text">Share This</p>' +
-    '        <div class="caret"><div></div></div></div>' +
-    '    </div><div class="clear">' +
-    '</div>' +
-    '<div class="share-options">' +
-    '    <ul>' +
-    '        <li><div class="fb-like"></div></li>' +
-    '        <li><div class="g-plusone"></div></li>' +
-    '        <li><a href="https://twitter.com/share" class="twitter-share-button"></a></li>' +
-    '    </ul>' +
-    '</div>' +
+    '    <a class="share-button" href="#" aria-controls="share-options" aria-expanded="false"><span>Share This</span></a>' +
+    '    <div id="share-options">' +
+    '        <ul>' +
+    '            <li><div class="fb-like"></div></li>' +
+    '            <li><div class="g-plusone"></div></li>' +
+    '            <li><a href="https://twitter.com/share" class="twitter-share-button"></a></li>' +
+    '        </ul>' +
+    '    </div>' +
+    '</div>'+
     '<div id="fb-root"></div>';
     var type;
     var providers = {
@@ -85,6 +81,7 @@
 
     var clear_menus = function() {
         $(toggle).parent().removeClass('open');
+        $(toggle).find(".share-button").attr("aria-expanded","false");
     };
 
     var Dropdown = function(element) {
@@ -104,6 +101,7 @@
 
             clear_menus();
             if (!isActive) {
+                $(this).find(".share-button").attr("aria-expanded","true");
                 $parent.toggleClass('open');
             }
             $share_container = $(fb_iframe).css('width',
