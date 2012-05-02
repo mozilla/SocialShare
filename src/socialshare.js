@@ -10,7 +10,7 @@
     var $share_container;
     var packaged_html = '' +
     '<div class="dropdown-toggle" data-toggle="dropdown">' +
-    '    <a class="share-button" href="#" aria-controls="share-options" aria-expanded="false"><span>Share This</span></a>' +
+    '    <a class="share-button" role="button" href="#share-options" aria-controls="share-options" aria-expanded="false"><span>Share This</span></a>' +
     '    <div id="share-options">' +
     '        <ul>' +
     '            <li><div class="fb-like"></div></li>' +
@@ -175,5 +175,10 @@
             $share_container.find(providers[key].selector)
                 .attr(providers[key][$share_container.attr('data-type')]);
         }
+        $share_container.find(".share-button").keypress(function(e) {
+            if (e.which === 32) {
+			    $(this).trigger("click");
+            }
+        });
     });
 })(window.jQuery);
