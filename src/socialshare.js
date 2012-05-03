@@ -4,12 +4,12 @@
 
     /* DROPDOWN CLASS DEFINITION */
 
-    var toggle = '[data-toggle="dropdown"]';
+    var toggle = '[data-toggle="socialshare"]';
     var share_selector = '.socialshare';
     var fb_iframe = '.socialshare.open[data-type="small-bubbles"] .share-options div.fb-like iframe';
     var $share_container;
     var packaged_html = '' +
-    '<div class="dropdown-toggle" data-toggle="dropdown">' +
+    '<div class="dropdown-toggle" data-toggle="socialshare">' +
     '    <div class="share-link"><div>' +
     '        <div class="heart"></div>' +
     '        <p class="text">Share This</p>' +
