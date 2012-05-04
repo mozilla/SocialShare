@@ -19,7 +19,7 @@
     '        </ul>' +
     '    </div>' +
     '</div>'+
-    '<div id="fb-root"></div>';
+    '<div id="fb-root" aria-hidden="true"></div>';
     var type;
     var providers = {
         facebook: {
@@ -177,7 +177,7 @@
         }
         $share_container.find(".share-button").keypress(function(e) {
             if (e.which === 32) {
-			    $(this).trigger("click");
+                $(this).trigger("click");
             }
         });
     });
