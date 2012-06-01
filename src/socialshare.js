@@ -180,5 +180,10 @@
                 $(this).trigger("click");
             }
         });
+        $(document).keydown(function(e) {
+	        if (e.which === 27 && $(".socialshare").hasClass("open")) {
+	            $(".share-button").trigger("click");
+	        }
+	    });
     });
 })(window.jQuery);
