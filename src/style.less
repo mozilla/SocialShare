@@ -8,21 +8,22 @@
 
 @font-family: 'OpenSans', "Lucida Sans", "Lucida Grande", "Lucida Sans Unicode", Verdana, sans-serif;
 
-@sprites: url('img/sprites.png') no-repeat top left;
+@heart-non-active: url('img/heart.png');
 
-.sprite-caret-open { background-position: 0 0; width: 9px; height: 7px; } 
-.sprite-caret { background-position: 0 -12px; width: 9px; height: 7px; } 
-.sprite-heart-hover { background-position: 0 -24px; width: 11px; height: 10px; } 
-.sprite-heart { background-position: 0 -39px; width: 11px; height: 10px; } 
+@heart-active: url('img/heart-hover.png');
+
+@caret-non-active: url('img/caret.png');
+
+@caret-active: url('img/caret-open.png');
 
 .share-active-state {
     color: @active-colour;
     .heart {
-        .sprite-heart-hover;
+        background-image: @heart-active;
     }
     .caret {
         div {
-            .sprite-caret-open;
+            background-image: @caret-active;
         }
     }
     .text{
@@ -55,17 +56,21 @@
             .rounded(3px);
             .box-shadow(~'0 0 .25px rgba(0, 0, 0, 0.3)', ~'inset 0 -2px rgba(0, 0, 0, 0.1)');
             div {
+                width: 9px;
+                height: 7px;
                 margin: 5px auto 0;
-                background: @sprites;
-                .sprite-caret;
+                background: no-repeat center;
+                background-image: @caret-non-active;
             }
         }
 
         .heart {
             margin: 9px 5px 0 0;
             float: left;
-            background: @sprites;
-            .sprite-heart;
+            background: no-repeat center;
+            background-image: @heart-non-active;
+            width: 12px;
+            height: 10px;
         }
 
         .text {
