@@ -9,7 +9,7 @@
     var fb_iframe = '.socialshare.open[data-type="small-bubbles"] #share-options div.fb-like iframe';
     var $share_container;
     var packaged_html = '' +
-    '<div class="dropdown-toggle" data-toggle="dropdown">' +
+    '<div class="dropdown-toggle" data-toggle="socialshare">' +
     '    <a class="share-button" role="button" href="#share-options" aria-controls="share-options" aria-expanded="false"><span>Share This</span></a>' +
     '    <div id="share-options">' +
     '        <ul>' +
