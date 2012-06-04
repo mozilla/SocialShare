@@ -6,24 +6,20 @@
 
     var toggle = '[data-toggle="socialshare"]';
     var share_selector = '.socialshare';
-    var fb_iframe = '.socialshare.open[data-type="small-bubbles"] .share-options div.fb-like iframe';
+    var fb_iframe = '.socialshare.open[data-type="small-bubbles"] #share-options div.fb-like iframe';
     var $share_container;
     var packaged_html = '' +
-    '<div class="dropdown-toggle" data-toggle="socialshare">' +
-    '    <div class="share-link"><div>' +
-    '        <div class="heart"></div>' +
-    '        <p class="text">Share This</p>' +
-    '        <div class="caret"><div></div></div></div>' +
-    '    </div><div class="clear">' +
-    '</div>' +
-    '<div class="share-options">' +
-    '    <ul>' +
-    '        <li><div class="fb-like"></div></li>' +
-    '        <li><div class="g-plusone"></div></li>' +
-    '        <li><a href="https://twitter.com/share" class="twitter-share-button"></a></li>' +
-    '    </ul>' +
-    '</div>' +
-    '<div id="fb-root"></div>';
+    '<div class="dropdown-toggle" data-toggle="dropdown">' +
+    '    <a class="share-button" role="button" href="#share-options" aria-controls="share-options" aria-expanded="false"><span>Share This</span></a>' +
+    '    <div id="share-options">' +
+    '        <ul>' +
+    '            <li><div class="fb-like"></div></li>' +
+    '            <li><div class="g-plusone"></div></li>' +
+    '            <li><a href="https://twitter.com/share" class="twitter-share-button"></a></li>' +
+    '        </ul>' +
+    '    </div>' +
+    '</div>'+
+    '<div id="fb-root" aria-hidden="true"></div>';
     var type;
     var providers = {
         facebook: {
@@ -85,6 +81,7 @@
 
     var clear_menus = function() {
         $(toggle).parent().removeClass('open');
+        $(toggle).find(".share-button").attr("aria-expanded","false");
     };
 
     var Dropdown = function(element) {
@@ -104,6 +101,7 @@
 
             clear_menus();
             if (!isActive) {
+                $(this).find(".share-button").attr("aria-expanded","true");
                 $parent.toggleClass('open');
             }
             $share_container = $(fb_iframe).css('width',
@@ -177,11 +175,15 @@
             $share_container.find(providers[key].selector)
                 .attr(providers[key][$share_container.attr('data-type')]);
         }
-
-        $(document).keypress(function(e) {
-            if (e.which === 0 && $share_container.hasClass('open')) {
-                clear_menus();
+        $share_container.find(".share-button").keypress(function(e) {
+            if (e.which === 32) {
+                $(this).trigger("click");
             }
         });
+        $(document).keydown(function(e) {
+	        if (e.which === 27 && $(".socialshare").hasClass("open")) {
+	            $(".share-button").trigger("click");
+	        }
+	    });
     });
 })(window.jQuery);

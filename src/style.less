@@ -8,82 +8,57 @@
 
 @font-family: 'OpenSans', "Lucida Sans", "Lucida Grande", "Lucida Sans Unicode", Verdana, sans-serif;
 
-@heart-non-active: url('img/heart.png');
-
-@heart-active: url('img/heart-hover.png');
-
-@caret-non-active: url('img/caret.png');
-
-@caret-active: url('img/caret-open.png');
-
 .share-active-state {
+    outline:none;
     color: @active-colour;
-    .heart {
-        background-image: @heart-active;
-    }
-    .caret {
-        div {
-            background-image: @caret-active;
-        }
-    }
-    .text{
+    background-position: 0 -17px;
+    span{
         border-color: lighten(@active-colour, 10%);
     }
 }
 
 .socialshare{
-    font-family: @font-family;
+	
+	font-family: @font-family;
 
-    .clear{
-        clear: both;
+    >div>a {
+		position: relative;
+		background: url('img/sprite.png') 0 8px no-repeat transparent;
+		text-decoration: none;
+		margin: 0;
+		letter-spacing: -0.25px;
+		padding: 0 28px 0 16px; 
+        color: rgb(72,72,72);
+		&:after{
+			content: "";
+			position: absolute;
+			top: 2px;
+			right: 0;
+			display:block;
+			border: 1px solid rgba(0, 0, 0, 0.12);
+	        background: url('img/sprite.png') 4px -45px no-repeat rgba(255, 255, 255, 0.95);
+	        width: 19px;
+	        height: 19px;
+	        .rounded(3px);
+	        .box-shadow(~'0 0 .25px rgba(0, 0, 0, 0.3)', ~'inset 0 -2px rgba(0, 0, 0, 0.1)');
+		}
+		&:hover:after,
+		&:focus:after{
+			background-position: 4px -70px;
+	        .box-shadow(~'0 0 .25px rgba(0, 0, 0, 0.3)', ~'inset 0 -2px rgba(0, 0, 0, 0.1)');
+		}
+		&:hover,
+		&:focus{.share-active-state;}
+		span {
+			padding-bottom: 1px;
+			border-bottom: 1px dotted rgba(72, 72, 72, 0.4);
+		}
+		&:focus span{
+			outline: 1px dotted rgb(175, 50, 50);
+		}
     }
 
-    .share-link{
-        div {
-            cursor: pointer;
-            color: rgb(72,72,72);
-            &:hover{.share-active-state;}
-        }
-
-        .caret {
-            border: 1px solid rgba(0, 0, 0, 0.12);
-            background: rgba(255, 255, 255, 0.95);
-            float: left;
-            width: 19px;
-            height: 19px;
-            margin-left: 6px;
-            margin-top: 3px;
-            .rounded(3px);
-            .box-shadow(~'0 0 .25px rgba(0, 0, 0, 0.3)', ~'inset 0 -2px rgba(0, 0, 0, 0.1)');
-            div {
-                width: 9px;
-                height: 7px;
-                margin: 5px auto 0;
-                background: no-repeat center;
-                background-image: @caret-non-active;
-            }
-        }
-
-        .heart {
-            margin: 9px 5px 0 0;
-            float: left;
-            background: no-repeat center;
-            background-image: @heart-non-active;
-            width: 12px;
-            height: 10px;
-        }
-
-        .text {
-            border-bottom: 1px dotted rgba(72, 72, 72, 0.4);
-            font-size: 16px;
-            line-height: 24px;
-            letter-spacing: -0.25px;
-            float: left;
-            margin: 0;
-        }
-    }
-
-    .share-options {
+    #share-options {
         display: none;
         position: absolute;
         .rounded(3px);
@@ -103,26 +78,24 @@
     }
 
     &.open {
-        .share-link div {
-            .share-active-state;
-            .caret {
-                width: 21px;
-                height: 21px;
-                border: 0;
+		>div>a {
+			.share-active-state;
+			&:after{
+				width: 21px;
+            	height: 21px;
+				border: 0;
+				right: 1px;
                 .box-shadow(~'0 0 1px rgba(255,255,255,0.6)', ~'inset 0 2px .5px 0 rgba(0,0,0,0.35)', ~'inset 0 0 5px 0 rgba(170,170,170,0.2)');
                 background-color: rgba(74,74,74,0.1);
-                div {
-                    margin-top: 7px;
-                    width: 20px;
-                }
-            }
-        }
-        .share-options {
+				background-position: 5px -68px;
+			}
+	    }
+        #share-options {
             display: block;
             margin-top: 12px;
         }
     }
-    &.open[data-type="bubbles"] .share-options {
+    &.open[data-type="bubbles"] #share-options {
         width: 178px;
         height: 68px;
         padding: 12px 12px 6.5px 12px;
@@ -142,7 +115,7 @@
             }
         }
     }
-    &.open[data-type="small-bubbles"] .share-options {
+    &.open[data-type="small-bubbles"] #share-options {
         padding: 12px 6px 6.5px 12px;
         height: 92px;
         width: 80px;
