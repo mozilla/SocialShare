@@ -178,6 +178,7 @@
         $share_container.find(".share-button").keypress(function(e) {
             if (e.which === 32) {
                 $(this).trigger("click");
+                e.preventDefault();
             }
         });
         $(document).keydown(function(e) {
