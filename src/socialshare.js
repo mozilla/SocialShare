@@ -18,8 +18,7 @@
     '            <li><a href="https://twitter.com/share" class="twitter-share-button"></a></li>' +
     '        </ul>' +
     '    </div>' +
-    '</div>'+
-    '<div id="fb-root" aria-hidden="true"></div>';
+    '</div>';
     var type;
     var providers = {
         facebook: {
@@ -113,6 +112,7 @@
         },
         load_sharing: function() {
             if (!this.scripts_loaded) {
+                $('body').append('<div id="fb-root" aria-hidden="true"></div>');
                 for (var key in providers) {
                     this.load_script(providers[key].src, providers[key].id);
                 }
