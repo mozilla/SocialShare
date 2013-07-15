@@ -23,7 +23,10 @@
     var providers = {
         facebook: {
             id: 'facebook-jssdk',
-            src: '//connect.facebook.net/en_US/all.js#xfbml=1&appId=255566051148260',
+            location: '//connect.facebook.net/',
+            lang: 'en-US',
+            sdk: '/all.js#xfbml=1&appId=255566051148260',
+            src: '',
             selector: '.fb-like',
             'small-bubbles': {
                 'data-send': 'false',
@@ -154,6 +157,14 @@
         providers.twitter['bubbles'][property] = value;
     };
 
+    var set_fb_lang = function(lang) {
+        var fb = providers.facebook;
+        if (lang) {
+            fb.lang = lang;
+        }
+        fb.src = fb.location + fb.lang + fb.sdk;
+    };
+
     $(function() {
         $('html').on('click.dropdown.data-api', clear_menus);
         $('body').on('click.dropdown.data-api', toggle, Dropdown.prototype.toggle);
@@ -162,6 +173,7 @@
         if (tweetby) {
             set_twitter('data-via', tweetby);
         }
+        set_fb_lang($share_container.attr('data-fb-lang'));
         var $meta_title = $('meta[property="og:title"]');
         if ($meta_title) {
             set_twitter('data-text', $meta_title.attr('content'));
@@ -174,6 +186,10 @@
         for (var key in providers) {
             $share_container.find(providers[key].selector)
                 .attr(providers[key][$share_container.attr('data-type')]);
+        }
+        var share_label = $share_container.attr('data-label');
+        if (share_label) {
+            $share_container.find('.share-button span').html(share_label);
         }
         $share_container.find(".share-button").keypress(function(e) {
             if (e.which === 32) {
