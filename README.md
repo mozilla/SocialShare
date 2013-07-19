@@ -20,10 +20,12 @@ Other resources (images, fonts) should be reached from their own media folder.
 
 ### Options
 
-Name         | Value
------------- | -------------
-data-type    | Controls the size of the share icons (bubbles/small-bubbles)
+Name          | Value
+------------- | -------------
+data-type     | Controls the size of the share icons (bubbles/small-bubbles)
 data-tweet-at | Controls which twitter account tweeted the content (default: @firefox)
+data-label	  | Controls the share toggle text label (default: 'Share This')
+data-fb-lang  | Controls the Facebook like button [language translation](https://www.facebook.com/translations/FacebookLocales.xml) (default 'en_US') 
 
 Some values are not configurable through the plugin. For example the tweet text and tweet website are controled by the open graph meta data:
 
